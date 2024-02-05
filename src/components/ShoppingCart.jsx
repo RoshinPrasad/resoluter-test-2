@@ -9,27 +9,31 @@ const ShoppingCart = ({ cart }) => {
   return (
     <div className="m-10 mt-28 fixed right-0 top-0 bg-gray-400 p-5 h-2/4 w-1/4 rounded-lg flex flex-col">
       <h2 className="text-2xl font-semibold mb-4 uppercase font-mono flex">Shopping Cart</h2>
-      <ul className="font-mono font-bold border border-black rounded p-1">
-        {cart
-          .reduce((x, item) => {
-            const existingItem = x.find(
-              (cartItem) => cartItem.code === item.code
-            );
+      {cart.length === 0 ? (
+        <p className="text-gray-600">Your cart is empty</p>
+      ) : (
+        <ul className="font-mono font-bold border border-black rounded p-1">
+          {cart
+            .reduce((x, item) => {
+              const existingItem = x.find(
+                (cartItem) => cartItem.code === item.code
+              );
 
-            if (existingItem) {
-              existingItem.quantity += 1;
-            } else {
-              x.push({ ...item, quantity: 1 });
-            }
+              if (existingItem) {
+                existingItem.quantity += 1;
+              } else {
+                x.push({ ...item, quantity: 1 });
+              }
 
-            return x;
-          }, [])
-          .map((cartItem) => (
-            <li key={cartItem.code}>
-              {cartItem.generic_name} - Quantity: {cartItem.quantity}
-            </li>
-          ))}
-      </ul>
+              return x;
+            }, [])
+            .map((cartItem) => (
+              <li key={cartItem.code}>
+                {cartItem.generic_name} - Quantity: {cartItem.quantity}
+              </li>
+            ))}
+        </ul>
+      )}
     </div>
   );
 };
