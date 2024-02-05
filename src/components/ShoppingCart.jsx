@@ -1,3 +1,4 @@
+// ShoppingCart.js
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
@@ -7,7 +8,7 @@ const ShoppingCart = ({ cart }) => {
   }, [cart]);
 
   return (
-    <div className="container mx-auto mt-8 bg-gray-400 p-5 h-36 rounded-lg w-auto flex flex-col">
+    <div className="m-10 mt-28 fixed right-0 top-0 bg-gray-400 p-5 h-2/4 w-1/4 rounded-lg flex flex-col">
       <h2 className="text-2xl font-semibold mb-4 uppercase">Shopping Cart</h2>
       <ul>
         {cart

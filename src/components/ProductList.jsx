@@ -1,5 +1,4 @@
 // ProductList.js
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Product from "./Product";
@@ -30,11 +29,13 @@ const ProductList = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {products.map((product) => (
-          <Product key={product.code} product={product} addToCart={addToCart} />
-        ))}
+    <div className="flex">
+      <div className="flex-3 p-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {products.map((product) => (
+            <Product key={product.code} product={product} addToCart={addToCart} />
+          ))}
+        </div>
       </div>
       <ShoppingCart cart={cart} />
     </div>
