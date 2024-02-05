@@ -19,7 +19,7 @@ const Product = ({ product, addToCart }) => {
       <p className="text-white">Group# {product.food_groups.toUpperCase()}</p>
       <button
         onClick={() => addToCart(product)}
-        className="bg-blue-500 hover:bg-green-700 text-white px-4 py-2 mt-2"
+        className="bg-blue-500 hover:bg-green-700 text-white px-4 py-2 mt-2 rounded font-serif"
       >
         Add to Cart
       </button>
